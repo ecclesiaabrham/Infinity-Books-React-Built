@@ -1,12 +1,9 @@
 import { FaHeart, FaStar, FaBookmark, FaHome } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useRef } from "react";
+import { useState } from "react";
 import "./Header.css";
 export default function Header() {
-  const homeRef = useRef(null);
-  const likeRef = useRef(null);
-  const favouriteRef = useRef(null);
-  const bookmarkRef = useRef(null);
+  const [active, setActive] = useState("home");
 
   return (
     <div className="header_container">
@@ -16,25 +13,37 @@ export default function Header() {
         <div className="reaction_icon">
           <div className="icon_box">
             <Link to="home">
-              <FaHome class="fa_icon" ref={homeRef} />
+              <FaHome
+                className={active == "home" ? "fa_icon_active" : "fa_icon"}
+                onClick={() => setActive("home")}
+              />
             </Link>
             <span className="tooltip">Home</span>
           </div>
           <div className="icon_box">
             <Link to="like">
-              <FaHeart class="fa_icon" ref={likeRef} />
+              <FaHeart
+                className={active == "like" ? "fa_icon_active" : "fa_icon"}
+                onClick={() => setActive("like")}
+              />
             </Link>
             <span className="tooltip">Likes</span>
           </div>
           <div className="icon_box">
             <Link to="favourite">
-              <FaStar class="fa_icon" ref={favouriteRef} />
+              <FaStar
+                className={active == "favourite" ? "fa_icon_active" : "fa_icon"}
+                onClick={() => setActive("favourite")}
+              />
             </Link>
             <span className="tooltip">Favourites</span>
           </div>
           <div className="icon_box">
             <Link to="bookmark">
-              <FaBookmark class="fa_icon" ref={bookmarkRef} />
+              <FaBookmark
+                className={active == "bookmark" ? "fa_icon_active" : "fa_icon"}
+                onClick={() => setActive("bookmark")}
+              />
             </Link>
             <span className="tooltip">Bookmarks</span>
           </div>

@@ -68,7 +68,11 @@
   visibility: visible;
 }
 .fa_icon {
+  color: gray;
   &:hover {
     transform: scale(1.1);
   }
+}
+.fa_icon_active {
+  color: #ffffff;
 }
