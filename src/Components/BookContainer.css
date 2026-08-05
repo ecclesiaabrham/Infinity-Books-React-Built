@@ -1,0 +1,10 @@
+.book_container {
+  display: flex;
+  height: 100vh;
+  background-image: url("/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-position-y: 100px;
+  overflow: auto;
+}
