@@ -3,7 +3,7 @@
 }
 .header_container {
   position: fixed;
-  height: 120px;
+  height: 180px;
   width: 100vw;
 }
 .header {
@@ -15,17 +15,26 @@
   height: 100%;
   width: 100%;
 }
+.logo {
+  position: absolute;
+  top: 10px;
+  font-family:
+    "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+    Arial, sans-serif;
+  color: white;
+}
 .search_space {
   position: absolute;
   border-top-left-radius: 100px;
   border-top-right-radius: 100px;
   border-bottom-left-radius: 100px;
   border-bottom-right-radius: 100px;
-  height: 50%;
+  height: 40%;
   width: 80%;
-  top: 10px;
+  top: 50px;
   padding-left: 30px;
   font-size: clamp(1rem, 1vw, 2rem);
+  color: white;
   outline: none;
   border: 2px solid white;
   background: linear-gradient(135deg, #1f1f1f, #552ea4);
@@ -37,7 +46,7 @@
   justify-content: center;
   flex-direction: row;
   bottom: 5px;
-  top: 90px;
+  top: 80%;
   width: 30vw;
   color: white;
   gap: 75px;

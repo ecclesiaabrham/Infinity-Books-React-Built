@@ -1,9 +1,10 @@
 import { FaHeart, FaStar, FaBookmark, FaHome } from "react-icons/fa";
 import "./Header.css";
-export default function SearchBar() {
+export default function Header() {
   return (
     <div className="header_container">
       <div className="header">
+        <h1 className="logo">Infinity Books</h1>
         <input className="search_space" />
         <div className="reaction_icon">
           <div className="icon">

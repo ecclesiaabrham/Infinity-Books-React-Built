@@ -1,4 +1,26 @@
+import { useState, useEffect } from "react";
 import "./BookContainer.css";
 export default function BookContainer() {
-  return <div className="book_container"></div>;
+  const [image, setImage] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3000/books")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setImage([...data]);
+      });
+  }, []);
+
+  return (
+    <div className="book_container">
+      {image.map((data, index) => {
+        return (
+          <div key={index} className="image_box">
+            <img src={data.src} className="books" />
+          </div>
+        );
+      })}
+    </div>
+  );
 }
