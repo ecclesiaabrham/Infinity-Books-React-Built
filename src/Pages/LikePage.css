@@ -1,0 +1,23 @@
+.like_container {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  top: 180px;
+  height: calc(100vh - 180px);
+  width: 100vw;
+  background-image: url("/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: auto;
+}
+
+.books {
+  height: 100%;
+  width: 100%;
+}
+.image_box {
+  height: 200px;
+  width: 200px;
+}

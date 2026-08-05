@@ -59,11 +59,16 @@
   transition: 0.3s;
   padding-left: 5px;
 }
-.icon {
+.icon_box {
   cursor: pointer;
 }
-.icon:hover .tooltip {
+.icon_box:hover .tooltip {
   cursor: pointer;
   opacity: 1;
   visibility: visible;
+}
+.fa_icon {
+  &:hover {
+    transform: scale(1.1);
+  }
 }

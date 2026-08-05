@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./BookContainer.css";
-export default function BookContainer() {
+export default function BookContainer({ bookContainerRef }) {
   const [image, setImage] = useState([]);
   useEffect(() => {
     fetch("http://localhost:3000/books")
@@ -13,7 +13,7 @@ export default function BookContainer() {
   }, []);
 
   return (
-    <div className="book_container">
+    <div className="book_container" ref={bookContainerRef}>
       {image.map((data, index) => {
         return (
           <div key={index} className="image_box">
