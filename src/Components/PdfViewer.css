@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+}
+.pdf_viewbox {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  height: 80vh;
+  width: 80vw;
+  border: 10px solid red;
+}
+
+.pdf_viewbox canvas {
+  position: absolute;
+  top: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.page_changer_left {
+  position: absolute;
+  left: 0;
+}
+.page_changer_right {
+  position: absolute;
+  right: 0;
+}

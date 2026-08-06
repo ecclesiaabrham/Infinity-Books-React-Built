@@ -12,7 +12,7 @@ export default function Header() {
         <input className="search_space" />
         <div className="reaction_icon">
           <div className="icon_box">
-            <Link to="home">
+            <Link to="/">
               <FaHome
                 className={active == "home" ? "fa_icon_active" : "fa_icon"}
                 onClick={() => setActive("home")}
