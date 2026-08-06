@@ -12,11 +12,14 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage setFile={setFile} />} />
-        <Route path="/like" element={<LikePage />} />
-        <Route path="/favourite" element={<FavouritePage />} />
-        <Route path="/bookmark" element={<BookmarkPage />} />
+        <Route path="/like" element={<LikePage setFile={setFile} />} />
+        <Route
+          path="/favourite"
+          element={<FavouritePage setFile={setFile} />}
+        />
+        <Route path="/bookmark" element={<BookmarkPage setFile={setFile} />} />
       </Route>
-      <Route path="pdfview" element={<PdfReader file={file} />} />
+      <Route path="/pdfview" element={<PdfReader file={file} />} />
     </Routes>
   );
 }
