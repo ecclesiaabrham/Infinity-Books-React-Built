@@ -6,6 +6,7 @@ import FavouritePage from "./Pages/FavouritePage";
 import BookmarkPage from "./Pages/BookmarkPage";
 import Layout from "./Pages/Layout";
 import PdfReader from "./Pages/PdfReader";
+import "./index.css";
 function App() {
   const [file, setFile] = useState(null);
   const [inputText, setInputText] = useState("");

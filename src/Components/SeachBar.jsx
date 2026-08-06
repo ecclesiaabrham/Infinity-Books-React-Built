@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
-export function SearchBar({ setInputText, inputText }) {
-  const [showClose, setShowClose] = useState("diasble_close");
+export default function SearchBar({ setInputText, inputText }) {
+  const [showClose, setShowClose] = useState("disable_close");
   return (
     <div className="search_bar">
       <input

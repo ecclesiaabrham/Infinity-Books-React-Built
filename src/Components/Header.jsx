@@ -1,8 +1,9 @@
 import { FaHeart, FaStar, FaBookmark, FaHome } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { SearchBar } from "./SeachBar";
-import "./Header.css";
+import SearchBar from "./SeachBar";
+import ThemeChange from "./ThemeChange";
+
 export default function Header({ setInputText, inputText }) {
   const [active, setActive] = useState("home");
 
@@ -11,6 +12,7 @@ export default function Header({ setInputText, inputText }) {
       <div className="header">
         <h1 className="logo">Infinity Books</h1>
         <SearchBar setInputText={setInputText} inputText={inputText} />
+        <ThemeChange />
         <div className="reaction_icon">
           <div className="icon_box">
             <Link to="/">
