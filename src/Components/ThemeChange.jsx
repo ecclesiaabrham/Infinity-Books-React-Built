@@ -1,13 +1,19 @@
 import { FaMoon, FaSun } from "react-icons/fa";
 import { useState, useEffect } from "react";
 export default function ThemeChange() {
-  const [dark, setDark] = useState(true);
+  const [dark, setDark] = useState(() => {
+    const savedTheme = localStorage.getItem("dark");
+
+    return savedTheme ? JSON.parse(savedTheme) : true;
+  });
 
   function toggleTheme() {
-    setDark(!dark);
-    document.body.classList.toggle("light");
+    setDark((prev) => !prev);
   }
-  useEffect(() => localStorage.setItem("dark", JSON.stringify(dark)), [dark]);
+  useEffect(() => {
+    document.body.classList.toggle("light", !dark);
+    localStorage.setItem("dark", JSON.stringify(dark));
+  }, [dark]);
   return (
     <>
       <FaMoon
