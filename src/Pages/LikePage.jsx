@@ -1,6 +1,7 @@
 import useBooks from "../hooks/useBooks";
 import BookList from "../Components/BookList";
-export default function LikePage({ setFile }) {
+import Searched from "../Components/Searched";
+export default function LikePage({ setFile, inputText }) {
   const books = useBooks();
 
   const likeArray = JSON.parse(localStorage.getItem("like")) || [];
@@ -8,7 +9,11 @@ export default function LikePage({ setFile }) {
   const like = books.filter((data) => likeArray.includes(data.id));
   return (
     <div className="book_container">
-      <BookList books={like} setFile={setFile} />
+      {inputText === "" ? (
+        <BookList books={like} setFile={setFile} />
+      ) : (
+        <Searched books={like} inputText={inputText} setFile={setFile} />
+      )}
     </div>
   );
 }

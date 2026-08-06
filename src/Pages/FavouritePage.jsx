@@ -1,6 +1,7 @@
 import useBooks from "../hooks/useBooks";
 import BookList from "../Components/BookList";
-export default function FavouritePage({ setFile }) {
+import Searched from "../Components/Searched";
+export default function FavouritePage({ setFile, inputText }) {
   const books = useBooks();
 
   const favoriteArray = JSON.parse(localStorage.getItem("favorite")) || [];
@@ -9,7 +10,11 @@ export default function FavouritePage({ setFile }) {
 
   return (
     <div className="book_container">
-      <BookList books={favorites} setFile={setFile} />
+      {inputText === "" ? (
+        <BookList books={favorites} setFile={setFile} />
+      ) : (
+        <Searched books={favorites} inputText={inputText} setFile={setFile} />
+      )}
     </div>
   );
 }

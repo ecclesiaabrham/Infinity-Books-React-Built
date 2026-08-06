@@ -1,15 +1,16 @@
 import { FaHeart, FaStar, FaBookmark, FaHome } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { SearchBar } from "./SeachBar";
 import "./Header.css";
-export default function Header() {
+export default function Header({ setInputText, inputText }) {
   const [active, setActive] = useState("home");
 
   return (
     <div className="header_container">
       <div className="header">
         <h1 className="logo">Infinity Books</h1>
-        <input className="search_space" />
+        <SearchBar setInputText={setInputText} inputText={inputText} />
         <div className="reaction_icon">
           <div className="icon_box">
             <Link to="/">

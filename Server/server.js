@@ -49,6 +49,7 @@ const data = [
   },
   {
     id: "00008",
+    title: "Learn JavaScript Visually",
     src: "/Learn Javascript Visually.pdf",
     thumbnail: "/jslogo.jpg",
   },
