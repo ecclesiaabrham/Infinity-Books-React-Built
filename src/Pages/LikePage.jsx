@@ -1,12 +1,14 @@
+import { useContext } from "react";
 import useBooks from "../hooks/useBooks";
 import BookList from "../Components/BookList";
 import Searched from "../Components/Searched";
-export default function LikePage({ setFile, inputText }) {
+import { BookContext } from "../context/BookContext";
+export default function LikePage() {
   const books = useBooks();
+  const { inputText, setFile, like } = useContext(BookContext);
+  const likeArray = like;
 
-  const likeArray = JSON.parse(localStorage.getItem("like")) || [];
-
-  const like = books.filter((data) => likeArray.includes(data.id));
+  const likes = books.filter((data) => likeArray.includes(data.id));
   return like.length === 0 ? (
     <div className="book_container">
       <p className="notfound_message">No book found</p>
@@ -14,9 +16,9 @@ export default function LikePage({ setFile, inputText }) {
   ) : (
     <div className="book_container">
       {inputText === "" ? (
-        <BookList books={like} setFile={setFile} />
+        <BookList books={likes} setFile={setFile} />
       ) : (
-        <Searched books={like} inputText={inputText} setFile={setFile} />
+        <Searched books={likes} inputText={inputText} setFile={setFile} />
       )}
     </div>
   );

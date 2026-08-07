@@ -1,10 +1,11 @@
 import useBooks from "../hooks/useBooks";
 import BookList from "./BookList";
 import Searched from "./Searched";
-
-export default function BookContainer({ setFile, inputText }) {
+import { BookContext } from "../context/BookContext";
+import { useContext } from "react";
+export default function BookContainer() {
   const books = useBooks();
-
+  const { inputText, setFile } = useContext(BookContext);
   return (
     <div className="book_container">
       {inputText === "" ? (

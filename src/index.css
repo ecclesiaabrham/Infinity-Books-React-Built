@@ -1,3 +1,6 @@
+* {
+  margin: 0;
+}
 :root {
   --background-color: linear-gradient(135deg, #000000, #808080);
   --logo: white;
@@ -27,11 +30,7 @@
   --header-image: url("/HeaderLight.avif");
 }
 
-* {
-  margin: 0;
-}
 .header_container {
-  position: fixed;
   height: 180px;
   width: 100vw;
 }
@@ -133,6 +132,11 @@
 .icon_hide {
   display: none;
 }
+.number {
+  position: absolute;
+  color: #ffffff;
+  bottom: 25px;
+}
 .reaction_icon {
   position: absolute;
   display: flex;
@@ -140,7 +144,7 @@
   flex-direction: row;
   bottom: 5px;
   top: 80%;
-  width: 30vw;
+  width: 500px;
   color: var(--user_action);
   gap: 75px;
 }
@@ -175,15 +179,18 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 40px;
+
   top: 180px;
   height: calc(100vh - 180px);
-  min-height: max-content;
   width: 100vw;
+
   background-image: var(--background_image);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  overflow: auto;
+
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .books {

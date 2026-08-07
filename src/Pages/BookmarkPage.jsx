@@ -1,12 +1,14 @@
+import { useContext } from "react";
 import useBooks from "../hooks/useBooks";
 import BookList from "../Components/BookList";
 import Searched from "../Components/Searched";
-export default function BookmarkPage({ setFile, inputText }) {
+import { BookContext } from "../context/BookContext";
+export default function BookmarkPage() {
   const books = useBooks();
+  const { inputText, setFile, bookmark } = useContext(BookContext);
+  const bookmarkArray = bookmark;
 
-  const bookmarkArray = JSON.parse(localStorage.getItem("bookmark")) || [];
-
-  const bookmark = books.filter((data) => bookmarkArray.includes(data.id));
+  const bookmarks = books.filter((data) => bookmarkArray.includes(data.id));
   return bookmark.length === 0 ? (
     <div className="book_container">
       <p className="notfound_message">No book found</p>
@@ -14,9 +16,9 @@ export default function BookmarkPage({ setFile, inputText }) {
   ) : (
     <div className="book_container">
       {inputText === "" ? (
-        <BookList books={bookmark} setFile={setFile} />
+        <BookList books={bookmarks} setFile={setFile} />
       ) : (
-        <Searched books={bookmark} inputText={inputText} setFile={setFile} />
+        <Searched books={bookmarks} inputText={inputText} setFile={setFile} />
       )}
     </div>
   );

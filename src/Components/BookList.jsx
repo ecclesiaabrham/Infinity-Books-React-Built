@@ -1,28 +1,10 @@
-import { useState, useEffect } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { BookContext } from "../context/BookContext";
 import UserAction from "./UserAction";
 export default function BookList({ books, setFile }) {
-  const [like, setLike] = useState(
-    JSON.parse(localStorage.getItem("like")) || [],
-  );
-  const [favorite, setFavorite] = useState(
-    JSON.parse(localStorage.getItem("favorite")) || [],
-  );
-  const [bookmark, setBookmark] = useState(
-    JSON.parse(localStorage.getItem("bookmark")) || [],
-  );
-
-  useEffect(() => {
-    localStorage.setItem("like", JSON.stringify(like));
-  }, [like]);
-
-  useEffect(() => {
-    localStorage.setItem("favorite", JSON.stringify(favorite));
-  }, [favorite]);
-
-  useEffect(() => {
-    localStorage.setItem("bookmark", JSON.stringify(bookmark));
-  }, [bookmark]);
+  const { like, setLike, favorite, setFavorite, bookmark, setBookmark } =
+    useContext(BookContext);
 
   function handleLike(id) {
     setLike((prev) => {

@@ -1,8 +1,8 @@
 import BookContainer from "../Components/BookContainer";
-export default function HomePage({ setFile, inputText }) {
+export default function HomePage() {
   return (
     <>
-      <BookContainer setFile={setFile} inputText={inputText} />
+      <BookContainer />
     </>
   );
 }

@@ -1,10 +1,12 @@
+import { useContext } from "react";
 import useBooks from "../hooks/useBooks";
 import BookList from "../Components/BookList";
 import Searched from "../Components/Searched";
-export default function FavouritePage({ setFile, inputText }) {
+import { BookContext } from "../context/BookContext";
+export default function FavouritePage() {
   const books = useBooks();
-
-  const favoriteArray = JSON.parse(localStorage.getItem("favorite")) || [];
+  const { inputText, setFile, favorite } = useContext(BookContext);
+  const favoriteArray = favorite;
 
   const favorites = books.filter((data) => favoriteArray.includes(data.id));
 

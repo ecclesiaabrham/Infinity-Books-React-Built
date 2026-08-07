@@ -1,10 +1,13 @@
 import { FaHeart, FaStar, FaBookmark, FaHome } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { BookContext } from "../context/BookContext";
 import SearchBar from "./SeachBar";
 import ThemeChange from "./ThemeChange";
 
-export default function Header({ setInputText, inputText }) {
+export default function Header() {
+  const { setInputText, inputText, like, favorite, bookmark } =
+    useContext(BookContext);
   const [active, setActive] = useState("home");
 
   return (
@@ -26,27 +29,39 @@ export default function Header({ setInputText, inputText }) {
           <div className="icon_box">
             <Link to="like">
               <FaHeart
-                className={active == "like" ? "fa_icon_active" : "fa_icon"}
+                className={active === "like" ? "fa_icon_active" : "fa_icon"}
                 onClick={() => setActive("like")}
               />
+              {like.length !== 0 && (
+                <span className="number">{like.length}</span>
+              )}
             </Link>
             <span className="tooltip">Likes</span>
           </div>
           <div className="icon_box">
             <Link to="favourite">
               <FaStar
-                className={active == "favourite" ? "fa_icon_active" : "fa_icon"}
+                className={
+                  active === "favourite" ? "fa_icon_active" : "fa_icon"
+                }
                 onClick={() => setActive("favourite")}
               />
+              {favorite.length !== 0 && (
+                <span className="number">{favorite.length}</span>
+              )}
             </Link>
             <span className="tooltip">Favourites</span>
           </div>
           <div className="icon_box">
             <Link to="bookmark">
               <FaBookmark
-                className={active == "bookmark" ? "fa_icon_active" : "fa_icon"}
+                className={active === "bookmark" ? "fa_icon_active" : "fa_icon"}
                 onClick={() => setActive("bookmark")}
               />
+
+              {bookmark.length !== 0 && (
+                <span className="number">{bookmark.length}</span>
+              )}
             </Link>
             <span className="tooltip">Bookmarks</span>
           </div>
