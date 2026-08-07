@@ -8,7 +8,11 @@ export default function FavouritePage({ setFile, inputText }) {
 
   const favorites = books.filter((data) => favoriteArray.includes(data.id));
 
-  return (
+  return favorites.length === 0 ? (
+    <div className="book_container">
+      <p className="notfound_message">No book found</p>
+    </div>
+  ) : (
     <div className="book_container">
       {inputText === "" ? (
         <BookList books={favorites} setFile={setFile} />

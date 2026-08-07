@@ -237,3 +237,8 @@
 .favorited {
   color: gold;
 }
+.notfound_message {
+  position: absolute;
+  top: 50%;
+  color: var(--text-color);
+}
