@@ -45,7 +45,7 @@ export default function BookList({ books, setFile }) {
             >
               <div className="image_box">
                 <img
-                  src={`http://localhost:3000${data.thumbnail}`}
+                  src={`https://infinity-books-react-built-1.onrender.com${data.thumbnail}`}
                   className="books"
                 />
               </div>

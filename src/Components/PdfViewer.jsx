@@ -40,7 +40,7 @@ export default function PdfViewer({ file }) {
   return (
     <div className="pdf_viewbox">
       <Document
-        file={`http://localhost:3000${file}`}
+        file={`https://infinity-books-react-built-1.onrender.com${file}`}
         onLoadSuccess={({ numPages }) => setNumPages(numPages)}
       >
         <Page pageNumber={pageNumber} />
