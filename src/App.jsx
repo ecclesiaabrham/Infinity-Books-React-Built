@@ -33,7 +33,7 @@ function App() {
           element={<BookmarkPage setFile={setFile} inputText={inputText} />}
         />
       </Route>
-      <Route path="/pdfview" element={<PdfReader file={file} />} />
+      <Route path="/pdfview/:id" element={<PdfReader file={file} />} />
     </Routes>
   );
 }

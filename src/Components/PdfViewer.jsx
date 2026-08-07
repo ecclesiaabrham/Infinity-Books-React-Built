@@ -1,5 +1,5 @@
 import { Document, Page, pdfjs } from "react-pdf";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { FaChevronLeft, FaChevronRight, FaBookmark } from "react-icons/fa";
 import workerSrc from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 import "react-pdf/dist/Page/AnnotationLayer.css";
@@ -12,10 +12,31 @@ export default function PdfViewer({ file }) {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const books = useBooks();
-  const bookmarkArray = JSON.parse(localStorage.getItem("bookmark"));
+  const bookmarkArray = JSON.parse(localStorage.getItem("bookmark")) || [];
   const marks = books.filter((data) => bookmarkArray.includes(data.id));
-  const book = marks.filter((B) => B.src === file);
-  console.log(book);
+  const book = marks.find((B) => B.src === file);
+  const previousPage = useCallback(() => {
+    setPageNumber((prev) => (prev > 1 ? prev - 1 : prev));
+  }, []);
+
+  const nextPage = useCallback(() => {
+    setPageNumber((prev) => (prev < numPages ? prev + 1 : prev));
+  }, [numPages]);
+
+  useEffect(() => {
+    function handleKey(event) {
+      event.key === "ArrowLeft" && previousPage();
+
+      event.key === "ArrowRight" && nextPage();
+    }
+
+    document.addEventListener("keydown", handleKey);
+
+    return () => {
+      document.removeEventListener("keydown", handleKey);
+    };
+  }, [nextPage, previousPage]);
+
   return (
     <div className="pdf_viewbox">
       <Document
@@ -24,28 +45,12 @@ export default function PdfViewer({ file }) {
       >
         <Page pageNumber={pageNumber} />
       </Document>
-      <FaBookmark
-        className={book.length == 0 ? "book_mark" : "yellow_bookmark"}
-      />
+      <FaBookmark className={!book ? "book_mark" : "yellow_bookmark"} />
       <p className="page_teller">
         page {pageNumber} of {numPages}
       </p>
-      <FaChevronRight
-        className="page_changer_right"
-        onClick={() => {
-          if (pageNumber < numPages) {
-            setPageNumber(pageNumber + 1);
-          }
-        }}
-      />
-      <FaChevronLeft
-        className="page_changer_left"
-        onClick={() => {
-          if (pageNumber > 1) {
-            setPageNumber(pageNumber - 1);
-          }
-        }}
-      />
+      <FaChevronRight className="page_changer_right" onClick={nextPage} />
+      <FaChevronLeft className="page_changer_left" onClick={previousPage} />
     </div>
   );
 }
