@@ -17,11 +17,11 @@ export default function ThemeChange() {
   return (
     <>
       <FaMoon
-        className={dark ? "moon_icon" : "icon_hide"}
+        className={!dark ? "moon_icon" : "icon_hide"}
         onClick={() => toggleTheme()}
       />
       <FaSun
-        className={!dark ? "sun_icon" : "icon_hide"}
+        className={dark ? "sun_icon" : "icon_hide"}
         onClick={() => toggleTheme()}
       />
     </>

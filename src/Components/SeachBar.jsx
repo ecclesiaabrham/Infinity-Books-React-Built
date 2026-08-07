@@ -8,7 +8,12 @@ export default function SearchBar({ setInputText, inputText }) {
         className="search_space"
         value={inputText}
         onFocus={() => setShowClose("active_close")}
-        onBlur={() => setShowClose("disable_close")}
+        onBlur={() =>
+          setTimeout(() => {
+            setInputText("");
+            setShowClose("disable_close");
+          }, 500)
+        }
         onChange={(event) => {
           setInputText(event.target.value);
         }}

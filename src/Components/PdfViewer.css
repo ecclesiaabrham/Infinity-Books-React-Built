@@ -24,6 +24,12 @@ body,
   color: #ffffff;
   left: 70px;
 }
+.yellow_bookmark {
+  position: absolute;
+  top: 5px;
+  color: yellow;
+  left: 70px;
+}
 .page_teller {
   position: absolute;
   top: 5px;

@@ -57,7 +57,7 @@ export default function BookList({ books, setFile }) {
         return (
           <div key={data.id}>
             <Link
-              to="pdfview"
+              to="/pdfview"
               className="link"
               onClick={() => setFile(data.src)}
             >
