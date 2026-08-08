@@ -24,7 +24,7 @@ export default function Header() {
                 onClick={() => setActive("home")}
               />
             </Link>
-            <span className="tooltip">Home</span>
+            <span className="tooltip_home">Home</span>
           </div>
           <div className="icon_box">
             <Link to="like">
@@ -36,7 +36,7 @@ export default function Header() {
                 <span className="number">{like.length}</span>
               )}
             </Link>
-            <span className="tooltip">Likes</span>
+            <span className="tooltip_like">Likes</span>
           </div>
           <div className="icon_box">
             <Link to="favourite">
@@ -50,7 +50,7 @@ export default function Header() {
                 <span className="number">{favorite.length}</span>
               )}
             </Link>
-            <span className="tooltip">Favourites</span>
+            <span className="tooltip_favorite">Favourites</span>
           </div>
           <div className="icon_box">
             <Link to="bookmark">
@@ -63,7 +63,7 @@ export default function Header() {
                 <span className="number">{bookmark.length}</span>
               )}
             </Link>
-            <span className="tooltip">Bookmarks</span>
+            <span className="tooltip_bookmark">Bookmarks</span>
           </div>
         </div>
       </div>
